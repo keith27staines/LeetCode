@@ -7,29 +7,40 @@
 
 import XCTest
 
+// https://leetcode.com/problems/two-sum/description/
+
 final class TwoSum: XCTestCase {
 
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+    func testExample1() {
+        let target: Int = 9
+        let values = [2,7,11,15]
+        let indices = twoSum(target: target, nums: values)
+        XCTAssertEqual(Set(indices), Set([0,1]))
     }
-
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+    
+    func testExample2() {
+        let target: Int = 6
+        let values = [3,2,4]
+        let indices = twoSum(target: target, nums: values)
+        XCTAssertEqual(Set(indices), Set([1,2]))
     }
-
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        // Any test you write for XCTest can be annotated as throws and async.
-        // Mark your test throws to produce an unexpected failure when your test encounters an uncaught error.
-        // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
+    
+    func testExample3() {
+        let target: Int = 6
+        let values = [3,3]
+        let indices = twoSum(target: target, nums: values)
+        XCTAssertEqual(Set(indices), Set([0,1]))
     }
+    
+}
 
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
+fileprivate func twoSum(target: Int, nums: [Int]) -> [Int] {
+    for i in 0..<nums.count/2 + 1 {
+        for j in (i + 1)..<nums.count {
+            if nums[i] + nums[j] == target {
+                return [i,j]
+            }
         }
     }
-
+    return []
 }
