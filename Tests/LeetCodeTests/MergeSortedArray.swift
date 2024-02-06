@@ -7,6 +7,8 @@
 
 import XCTest
 
+// https://leetcode.com/problems/merge-sorted-array/description/?envType=study-plan-v2&envId=top-interview-150
+
 final class MergeSortedArray: XCTestCase {
 
     func testMerge() {
@@ -34,7 +36,7 @@ final class MergeSortedArray: XCTestCase {
 
 }
 
-func merge(_ nums1: inout [Int], _ m: Int, _ nums2: [Int], _ n: Int){
+fileprivate func merge(_ nums1: inout [Int], _ m: Int, _ nums2: [Int], _ n: Int){
     let c = nums1
     var i = 0
     var j = 0
